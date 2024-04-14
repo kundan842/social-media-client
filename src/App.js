@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Route, Routes } from "react-router-dom";
+import Signup from "./pages/signup/Signup";
+import Login from "./pages/login/login";
+import Home from "./pages/home/Home";
+import RequireUser from "./components/RequireUser";
+import { useEffect } from "react";
+import { axioClient } from "./utils/client";
+import Feed from "./components/Feed/Feed";
+import Profile from "./components/Profile/Profile";
+import UpdateProfile from "./components/updateProfile/UpdateProfile";
 
 function App() {
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   
+<Routes>
+  <Route  element={<RequireUser />}>
+    <Route  element={<Home />}>
+      <Route path="/" element={<Feed></Feed>}></Route>
+      <Route path="/profile/:userId" element={<Profile></Profile>}></Route>
+      <Route path="/updateProfile" element={<UpdateProfile></UpdateProfile>}></Route>
+    </Route>
+    
+    <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<Signup />} />
+  </Route>
+</Routes>
+
+  )
 }
 
 export default App;
