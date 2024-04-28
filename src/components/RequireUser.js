@@ -4,7 +4,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 function RequireUser() {
     const accessToken = getItem(LOCAL_STORAGE_TOKEN_KEY)
-    console.log('inside requireUser')
+    console.log('inside required user token:', accessToken)
   return (
     accessToken ? <Outlet/> : <Navigate  to="/login" />
   )

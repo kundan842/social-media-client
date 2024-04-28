@@ -5,7 +5,7 @@ import { axioClient } from '../../utils/client'
 import { Link, useNavigate } from 'react-router-dom'
 import { LOCAL_STORAGE_TOKEN_KEY, setItem } from '../../utils/storageManager'
 function Login() {
-
+    console.log('inside login')
     const [email, setEmail]=useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
