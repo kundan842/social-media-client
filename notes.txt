@@ -3,5 +3,23 @@ npm i express
 npm i dotenv (to provide the enviornment varaibles)
 npm i bcrypt
 npm i jsonwebtoken
+npm i cloudinary
 npx create-react-app client
  npm install node-sass --save-dev (for imoorting the .scss file)
+npm i  react-router-dom
+npm install sass-loader sass webpack --save-dev
+interceptors 
+=> there are two intercepters request and response intercepters
+        request ineterceptors
+=> before sending the request from client to  to server , request will be intercepted
+and we can add the token into the request headers so for each api call no need to add the the 
+token each time
+                    response interceptors
+=> before shwoing the response to the client , response will be intercepted
+and we can perform the require opeartions on the respose object
+like if we made api call to some endpoint but the access token expird then 
+in that case response will be 401 in this case we will have to intercept the 
+redpose and call the refresh token api, once refresh token is returnrd
+then internslly request the endpoint user has requedted before letting the
+user know about it. if token not refreshed then just log out the user.
+=> inside the reducer of slice , async function cannot be called to call async function redux thunk is used
